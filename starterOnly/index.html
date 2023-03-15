@@ -17,7 +17,7 @@
       <img alt="logo" src="Logo.png" width="auto" height="auto" />
     </div>
     <div class="main-navbar">
-      
+
       <a href="#" class="active"><span>Accueil</span></a>
       <a href="#"><span>Détails de l'évènement</span></a>
       <a href="#"><span>À propos</span></a>
@@ -52,30 +52,31 @@
         </button>
       </div>
 
-      <div class="bground">
+      <div class="bground none">
         <div class="content">
           <span class="close"></span>
           <div class="modal-body">
             <form
+              id="modal-form"
               name="reserve"
-              action="index.html"
-              method="get"
-              onsubmit="return validate();"
             >
               <div
-                class="formData">
-                <label>Prénom</label><br>
+                class="formData"
+                data-error="Veuillez entrer 2 caractères ou plus."
+              >
+                <label for="first">Prénom</label><br>
                 <input
                   class="text-control"
                   type="text"
                   id="first"
                   name="first"
-                  minlength="2"
                 /><br>
               </div>
               <div
-                class="formData">
-                <label>Nom</label><br>
+                class="formData"
+                data-error="Veuillez entrer 2 caractères ou plus."
+              >
+                <label for="last">Nom</label><br>
                 <input
                   class="text-control"
                   type="text"
@@ -84,18 +85,22 @@
                 /><br>
               </div>
               <div
-                class="formData">
-                <label>E-mail</label><br>
+                class="formData"
+                data-error="Veuillez entrer une adresse e-mail valide."
+              >
+                <label for="email">E-mail</label><br>
                 <input
                   class="text-control"
-                  type="email"
+                  type="text"
                   id="email"
                   name="email"
                 /><br>
               </div>
               <div
-                class="formData">
-                <label>Date de naissance</label><br>
+                class="formData"
+                data-error="Vous devez entrer votre date de naissance."
+              >
+                <label for="birthdate">Date de naissance</label><br>
                 <input
                   class="text-control"
                   type="date"
@@ -104,13 +109,17 @@
                 /><br>
               </div>
               <div
-                class="formData">
-                <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                class="formData"
+                data-error="Vous devez entrer un nombre entre 0 et 99."
+              >
+                <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+                <input type="number" class="text-control" id="quantity" name="quantity">
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
-                class="formData">
+                class="formData"
+                data-error="Vous devez choisir une option."
+              >
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -176,16 +185,17 @@
                 <label class="checkbox-label" for="location6">
                   <span class="checkbox-icon"></span>
                   Portland</label
-                >
+                ><br>
               </div>
 
               <div
-                class="formData">
+                class="formData"
+                data-error="Vous devez vérifier que vous acceptez les termes et conditions."
+              >
                 <input
                   class="checkbox-input"
                   type="checkbox"
                   id="checkbox1"
-                  checked
                 />
                 <label class="checkbox2-label" for="checkbox1" required>
                   <span class="checkbox-icon"></span>
@@ -206,6 +216,16 @@
                 value="C'est parti"
               />
             </form>
+            <div class="modal-confirm none">
+              <div class="modal-confirm-text">
+                <div>Merci pour</div>
+                <div>votre inscription</div>
+              </div>
+              <input
+                class="button btn-submit close-modal-confirm"
+                type="submit"
+                value="Fermer"
+              />
           </div>
         </div>
       </div>
